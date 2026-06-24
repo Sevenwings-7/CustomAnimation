@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CustomAnimation - Create Your Character</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 { color: #333; margin-bottom: 5px; }
+        p { color: #666; margin-bottom: 20px; }
+        
+        /* Main Container */
+        .creator-container {
+            display: flex;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            gap: 30px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* Character Preview Canvas */
+        .avatar-preview {
+            width: 200px;
+            height: 250px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Avatar Parts */
+        .part {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        .body {
+            width: 80px;
+            height: 120px;
+            background-color: #ffdbac; /* Skin tone */
+            border-radius: 40px 40px 10px 10px;
+            bottom: 20px;
+        }
+        .eyes {
+            width: 50px;
+            height: 10px;
+            top: 45%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .eye {
+            width: 12px;
+            height: 12px;
+            background: #333;
+            border-radius: 50%;
+        }
+        .hair {
+            width: 90px;
+            height: 40px;
+            top: 50px;
+            border-radius: 20px 20px 0 0;
+        }
+        .outfit {
+            width: 84px;
+            height: 70px;
+            bottom: 20px;
+            border-radius: 10px 10px 5px 5px;
+        }
+
+        /* Controls / Buttons */
+        .controls {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        label { font-weight: bold; color: #555; font-size: 14px; }
+        .btn-group { display: flex; gap: 5px; }
+        button {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        button:hover { background: #007bff; color: white; border-color: #007bff; }
+    </style>
+</head>
+<body>
+
+    <h1>CustomAnimation</h1>
+    <p>Apna khud ka animation character design karein!</p>
+
+    <div class="creator-container">
+        <div class="avatar-preview">
+            <div class="part body"></div>
+            <div class="part eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+            </div>
+            <div id="character-hair" class="part hair" style="background-color: #4a3728;"></div>
+            <div id="character-outfit" class="part outfit" style="background-color: #3498db;"></div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>Hairs (Baal):</label>
+                <div class="btn-group">
+                    <button onclick="changeHair('#4a3728')">Brown</button>
+                    <button onclick="changeHair('#f1c40f')">Blonde</button>
+                    <button onclick="changeHair('#e74c3c')">Red</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Clothes (Kapde):</label>
+                <div class="btn-group">
+                    <button onclick="changeOutfit('#3498db')">Blue T-Shirt</button>
+                    <button onclick="changeOutfit('#2ecc71')">Green T-Shirt</button>
+                    <button onclick="changeOutfit('#9b59b6')">Purple T-Shirt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeHair(color) {
+            document.getElementById('character-hair').style.backgroundColor = color;
+        }
+
+        function changeOutfit(color) {
+            document.getElementById('character-outfit').style.backgroundColor = color;
+        }
+    </script>
+
+</body>
+</html>
